@@ -85,11 +85,10 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'snsproject',
-        'USER': 'root', # パソコンにインストールしたMySQLのユーザー名
+        'NAME': 'Kohoku$snsproject',
+        'USER': 'Kohoku', # パソコンにインストールしたMySQLのユーザー名
         'PASSWORD': 'remuramubeak0', # 同上。そのパスワード
-        'HOST': 'localhost',
-        'PORT': '3306'
+        'HOST': 'Kohoku.mysql.pythonanywhere-services.com',
     }
 }
 
