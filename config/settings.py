@@ -11,7 +11,9 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+from django.core.management.utils import get_random_secret_key
 
+SECRET_KEY = get_random_secret_key() 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -23,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'h43&^c57q6+412$crxl3)i68ef=l!#fs=8vha+7di&t4i$u8w9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '.pythonanywhere.com', 'Kohoku.pythonanywhere.com']
 
 
 # Application definition
@@ -42,6 +44,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account', 
     'allauth.socialaccount', 
+    'django_bootstrap5',
 ]
 
 
@@ -81,8 +84,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'snsproject',
+        'USER': 'root', # パソコンにインストールしたMySQLのユーザー名
+        'PASSWORD': 'remuramubeak0', # 同上。そのパスワード
+        'HOST': 'localhost',
+        'PORT': '3306'
     }
 }
 
@@ -109,9 +116,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ja'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tokyo'
 
 USE_I18N = True
 
@@ -145,3 +152,6 @@ SITE_ID = 1
 
 LOGIN_REDIRECT_URL = 'home'          
 ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
