@@ -1,0 +1,5 @@
+mysqlclient
+django
+django-allauth
+psycopg2
+django-bootstrap5
