@@ -10,7 +10,7 @@
     {% for item in object_list %}
     <div class="alert alert-success" role="alert">
         <div class="d-flex">
-            <a herf="{% url 'userlist' item.pk %}">{{item.user.username}}</a> 
+            <a herf="{% url 'userlist' item.user %}">{{item.user.username}}</a> 
             {% if item.user != request.user %}
         {% if item.user in connection.0.following.all%}
         <a href="{% url 'follow-home' item.pk %}" class="btn btn-danger ms-3" tabindex="-1" role="button" aria-disabled="true">フォロー解除</a>
