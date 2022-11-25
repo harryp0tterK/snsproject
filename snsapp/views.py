@@ -31,6 +31,16 @@ class MyPost(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         return Post.objects.filter(user=self.request.user)
+    
+class UserPost(LoginRequiredMixin, ListView):
+    """自分の投稿のみ表示"""
+    model = Post
+    template_name = 'list.html'
+
+    def get_queryset(self,  **kwargs):
+        pk = self.kwargs["user"]
+        return Post.objects.filter(user=self.request.user)
+
 
 
 class CreatePost(LoginRequiredMixin, CreateView):
