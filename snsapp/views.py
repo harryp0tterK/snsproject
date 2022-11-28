@@ -38,8 +38,8 @@ class UserPost(LoginRequiredMixin, ListView):
     template_name = 'list.html'
 
     def get_queryset(self,  **kwargs):
-        pk = self.kwargs["user"]
-        return Post.objects.filter(user=self.request.user)
+        user_adr = self.kwargs["user"]
+        return Post.objects.filter(user=user_adr)
 
 
 
