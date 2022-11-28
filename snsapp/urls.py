@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import Home, MyPost, CreatePost, DetailPost, UpdatePost, DeletePost,\
+from .views import Home, MyPost, CreatePost, DetailPost, UpdatePost, DeletePost, UserPost,\
                    LikeHome, FollowHome, FollowDetail, FollowList, LikeDetail
 
 
